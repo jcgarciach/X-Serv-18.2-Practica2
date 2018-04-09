@@ -1,5 +1,7 @@
-#!/usr/bin/python3
 
 from django.contrib import admin
 
 # Register your models here.
+from .models import urls
+
+admin.site.register(urls)

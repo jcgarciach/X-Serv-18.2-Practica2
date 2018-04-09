@@ -1,9 +1,8 @@
-#!/usr/bin/python3
 
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
-from acorta.models import urls
+from acorta_url.models import urls
 
 # Create your views here.
 
@@ -39,9 +38,9 @@ def pag(request):
     return HttpResponse(response, code = 200)
 
 
-def redirect(request, resource):
+def redir(request, resource):
     try:
-        url_large = urls.objects.get(id=resource).url_large
+        url_large = urls.objects.get(id = resource).url_large
         return HttpResponseRedirect(url_large)
     except urls.DoesNotExist:
         response = "Not Found"
